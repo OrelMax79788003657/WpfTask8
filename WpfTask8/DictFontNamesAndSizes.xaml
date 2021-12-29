@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="MyFontArial">Arial</sys:String>
+    <sys:String x:Key="MyFontTimesNewR">Times New Roman</sys:String>
+    <sys:String x:Key="MyFontVerdana">Verdana</sys:String>
+    
+    <sys:Int32 x:Key="s12">12</sys:Int32>
+    <sys:Int32 x:Key="s14">14</sys:Int32>
+    <sys:Int32 x:Key="s16">16</sys:Int32>
+</ResourceDictionary>
