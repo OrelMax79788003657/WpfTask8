@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTask8"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="600" ResizeMode="NoResize" Style="{DynamicResource WindowStyle}">
     <Window.CommandBindings>
         <CommandBinding Command="local:MyCommands.Exit" Executed="ExitExecuted"/>
         <CommandBinding Command="Open" Executed="OpenExecute"/>
@@ -18,60 +18,64 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Menu Margin="5px" Padding="5px" Grid.Row="0">
-            <MenuItem Header="Файл">
-                <MenuItem Header="Открыть" Command="ApplicationCommands.Open" />
+        <Menu Margin="5px" Padding="5px" Grid.Row="0" Style="{DynamicResource MenuStyle}">
+            <MenuItem Header="File"  >
+                <MenuItem Header="Open" Command="ApplicationCommands.Open" />
 
 
-                <MenuItem Header="Сохранить" Command="Save"/>
+                <MenuItem Header="Save" Command="Save"/>
 
 
-                <MenuItem Header="Выход" Command="local:MyCommands.Exit" >
+                <MenuItem Header="Exit" Command="local:MyCommands.Exit" >
                     <!--<MenuItem.CommandBindings>
                         <CommandBinding Command="local:MyCommands.Exit" Executed="ExitExecuted"/>
                     </MenuItem.CommandBindings>-->
 
                 </MenuItem>
             </MenuItem>
+            <ComboBox x:Name="styleBox" Style="{DynamicResource ComboBoxStyle}" Margin="5" Padding="5" SelectedIndex="0" Width="100" SelectionChanged="ComboBoxStyle_changed">
+                <TextBlock Text="Light" />
+                <TextBlock Text="Dark"/>
+            </ComboBox>
         </Menu>
         <ToolBarTray Grid.Row="1" >
-            <ToolBar Margin="5" Padding="5" >
-                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged">
-                    <TextBlock Text="Arial"/>
-                    <TextBlock Text="Times New Roman"/>
-                    <TextBlock Text="Verdana"/>
+            <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}" >
+                <ComboBox  Margin="5" Padding="5" SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged">
+                    <TextBlock Text="Arial" />
+                    <TextBlock Text="Times New Roman" />
+                    <TextBlock Text="Verdana" />
                 </ComboBox>
-                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="50" SelectionChanged="ComboBox_SelectionChanged_1">
-                    <TextBlock Text="12"/>
-                    <TextBlock Text="14"/>
-                    <TextBlock Text="16"/>
+                <ComboBox  Margin="5" Padding="5" SelectedIndex="0" Width="50" SelectionChanged="ComboBox_SelectionChanged_1">
+                    <TextBlock Text="12" />
+                    <TextBlock Text="14" />
+                    <TextBlock Text="16" />
                 </ComboBox>
             </ToolBar>
-            <ToolBar Margin="5" Padding="5">
-                <Button x:Name="Button_bold_text" Click="Button_bold_text_Click">
+            <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}">
+                <Button x:Name="Button_bold_text" Style="{DynamicResource ButtonStyle}" Click="Button_bold_text_Click">
                     <Image Height="24" Source="Data/B.png" Stretch="Fill" Width="24"/>
 
                 </Button>
                 <Separator/>
-                <Button x:Name="Button_italic_text" Click="Button_italic_text_Click">
+                <Button x:Name="Button_italic_text" Style="{DynamicResource ButtonStyle}" Click="Button_italic_text_Click">
                     <Image Height="24" Source="Data/I.png" Stretch="Fill" Width="24"/>
 
                 </Button>
                 <Separator/>
-                <Button x:Name="Button_underlined_text" Click="Button_underlined_text_Click">
+                <Button x:Name="Button_underlined_text" Style="{DynamicResource ButtonStyle}" Click="Button_underlined_text_Click">
                     <Image Height="24" Source="Data/U.png" Stretch="Fill" Width="24"/>
                 </Button>
                 <Separator/>
 
             </ToolBar>
-            <ToolBar Margin="5" Padding="5" >
+            <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}"  >
                 <StackPanel VerticalAlignment="Center">
-                    <RadioButton x:Name="Radio_button_black" Content="Черный" IsChecked="True" Checked="Radio_button_black_checked" />
-                    <RadioButton x:Name="Radio_button_red" Content="Красный" Checked="Radio_button_red_checked"/>
+                    <RadioButton x:Name="Radio_button_black" Content="Black" IsChecked="True" Checked="Radio_button_black_checked" />
+                    <RadioButton x:Name="Radio_button_red" Content="Red" Checked="Radio_button_red_checked"/>
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="12" FontFamily="Arial" TextWrapping="Wrap" >
+        <TextBox x:Name="textBox" Style="{DynamicResource TextBoxStyle}" Grid.Row="2" Margin="5" Padding="5" FontSize="12" FontFamily="Arial" TextWrapping="Wrap" >
 
         </TextBox>
 

@@ -140,5 +140,16 @@ namespace WpfTask8
             }
             MessageBox.Show("Документ coxpaнен");
         }
+
+        private void ComboBoxStyle_changed(object sender, SelectionChangedEventArgs e)
+        {
+            string style = (styleBox.SelectedItem as TextBlock).Text.ToLower();
+            var uri = new Uri(style + ".xaml", UriKind.Relative);
+
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+
+        }
     }
 }
