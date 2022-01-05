@@ -40,15 +40,20 @@
         </Menu>
         <ToolBarTray Grid.Row="1" >
             <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}" >
-                <ComboBox  Margin="5" Padding="5" SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged">
-                    <TextBlock Text="Arial" />
-                    <TextBlock Text="Times New Roman" />
-                    <TextBlock Text="Verdana" />
+                <ComboBox x:Name="FontsBox"  Margin="5" Padding="5" SelectedIndex="0" Width="200">
+                    <ComboBoxItem Tag="Arial">Arial</ComboBoxItem>
+                    <ComboBoxItem Tag="Times New Roman">Times New Roman</ComboBoxItem>
+                    <ComboBoxItem Tag="Verdana">Verdana</ComboBoxItem>
                 </ComboBox>
-                <ComboBox  Margin="5" Padding="5" SelectedIndex="0" Width="50" SelectionChanged="ComboBox_SelectionChanged_1">
-                    <TextBlock Text="12" />
-                    <TextBlock Text="14" />
-                    <TextBlock Text="16" />
+                <ComboBox x:Name="SizeBox"  Margin="5" Padding="5" SelectedIndex="0" Width="50">
+                    <ComboBoxItem Tag="12">12</ComboBoxItem>
+                    <ComboBoxItem Tag="14">14</ComboBoxItem>
+                    <ComboBoxItem Tag="16">16</ComboBoxItem>
+                    <ComboBoxItem Tag="18">18</ComboBoxItem>
+                    <ComboBoxItem Tag="20">20</ComboBoxItem>
+                    <ComboBoxItem Tag="22">22</ComboBoxItem>
+                    <ComboBoxItem Tag="24">24</ComboBoxItem>
+                    <ComboBoxItem Tag="26">26</ComboBoxItem>
                 </ComboBox>
             </ToolBar>
             <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}">
@@ -75,9 +80,15 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="textBox" Style="{DynamicResource TextBoxStyle}" Grid.Row="2" Margin="5" Padding="5" FontSize="12" FontFamily="Arial" TextWrapping="Wrap" >
+        <TextBox x:Name="textBox"
+                 Style="{DynamicResource TextBoxStyle}"
+                 FontFamily="{Binding ElementName=FontsBox, Path=SelectedItem.Tag}" 
+                 FontSize="{Binding ElementName=SizeBox, Path=SelectedItem.Tag}"
+                 Grid.Row="2" 
+                 Margin="5" Padding="5" 
+                 TextWrapping="Wrap"/>
 
-        </TextBox>
+
 
     </Grid>
 </Window>
